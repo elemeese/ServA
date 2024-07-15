@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nonna Pizza - Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="home-page">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href={% url 'index' %}>
+                <img src="{% static 'img/logo.png' %}" alt="La Nonna Pizza Logo" class="d-inline-block align-top navbar-logo">
+                La Nonna Pizza
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'personalizar' %}">Personalizar Pizza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="{% url 'carrito' %}">
+                            Carrito <span id="contador-carrito" class="badge bg-secondary">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div id="pizzaCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/pizza1.jpg' %}" class="d-block w-100" alt="Pizza Peppe">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pizza Peppe</h5>
+                        <p>Nuestra deliciosa pizza Peppe, un clásico renovado.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/pizza2.jpg' %}" class="d-block w-100" alt="Pizza Roman">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pizza Roman</h5>
+                        <p>Sabores auténticos de Roma en cada rebanada.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/pizza3.jpg' %}" class="d-block w-100" alt="Pizza Napoles">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pizza Napoles</h5>
+                        <p>El verdadero sabor de Nápoles en tu mesa.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/pizza4.jpg' %}" class="d-block w-100" alt="Pizza Chess">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pizza Chess</h5>
+                        <p>Una explosión de quesos para los amantes del sabor.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#pizzaCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#pizzaCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Carrusel de Ofertas Especiales -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Ofertas Especiales</h2>
+        <div id="ofertasCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card text-center">
+                        <img src="{% static 'img/Promo_2x1.jpg' %}" class="card-img-top" alt="Promo 2x1">
+                        <div class="card-body">
+                            <h5 class="card-title">2x1 en Pizzas Medianas</h5>
+                            <p class="card-text">¡Exclusivo local! Todos los jueves desde las 1 PM. ¡No te lo pierdas!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center">
+                        <img src="{% static 'img/Promo_estudiantes.jpg' %}" class="card-img-top" alt="Promo Estudiantes">
+                        <div class="card-body">
+                            <h5 class="card-title">Promo Estudiantil</h5>
+                            <p class="card-text">De lunes a viernes, muestra tu TNE y llévate tu Peppe a tan solo $5500.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center">
+                        <img src="{% static 'img/Promo_finde.jpg' %}" class="card-img-top" alt="Promo Fin de Semana">
+                        <div class="card-body">
+                            <h5 class="card-title">Ofertas de Fin de Semana</h5>
+                            <p class="card-text">Todas nuestras pizzas a $6500 comprando antes de las 12 del día.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#ofertasCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#ofertasCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </div>
+
+    <main class="container mt-4">
+        <h1 class="text-center mb-4 section-title">Bienvenidos a La Nonna Pizza</h1>
+        <p class="text-center">Descubre el auténtico sabor de la pizza italiana en cada bocado.</p>
+        
+        <section id="menu" class="my-5">
+            <h2 class="text-center mb-4 section-title">Nuestro Menú</h2>
+            <p class="text-center">Todas nuestras pizzas son de 38 cm y cuestan $8000</p>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="{% static 'img/pizza1.jpg' %}" class="card-img-top" alt="Pizza Peppe">
+                        <div class="card-body">
+                            <h5 class="card-title">Pizza Peppe</h5>
+                            <p class="card-text">Salsa de la casa, queso mozzarella, pepperoni y jamón serrano.</p>
+                            <a href="#" class="btn btn-primary btn-ordenar" data-producto="Pizza Peppe" data-precio="8000">Ordenar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="{% static 'img/pizza2.jpg' %}" class="card-img-top" alt="Pizza Roman">
+                        <div class="card-body">
+                            <h5 class="card-title">Pizza Roman</h5>
+                            <p class="card-text">Salsa de la casa, queso mozzarella, pepperoni, aceitunas y cebolla.</p>
+                            <a href="#" class="btn btn-primary btn-ordenar" data-producto="Pizza Roman" data-precio="8000">Ordenar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="{% static 'img/pizza3.jpg' %}" class="card-img-top" alt="Pizza Napoles">
+                        <div class="card-body">
+                            <h5 class="card-title">Pizza Napoles</h5>
+                            <p class="card-text">Salsa de la casa, tomate, jamón, aceitunas.</p>
+                            <a href="#" class="btn btn-primary btn-ordenar" data-producto="Pizza Napoles" data-precio="8000">Ordenar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="{% static 'img/pizza4.jpg' %}" class="card-img-top" alt="Pizza Chess">
+                        <div class="card-body">
+                            <h5 class="card-title">Pizza Chess</h5>
+                            <p class="card-text">Salsa de la casa, queso mozzarella, queso cheddar y queso parmesano.</p>
+                            <a href="#" class="btn btn-primary btn-ordenar" data-producto="Pizza Chess" data-precio="8000">Ordenar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-light text-center text-lg-start mt-4">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">La Nonna Pizza</h5>
+                    <p>
+                        Ofrecemos las mejores pizzas artesanales con ingredientes frescos y de calidad.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#acercaDeModal">Acerca de</a></li>
+                        <li><a href="#menu" class="text-dark">Menú</a></li>
+                        <li><a href="https://api.whatsapp.com/message/7CJCLY3QVPKMJ1?autoload=1&app_absent=0" class="text-dark" target="_blank">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0">Síguenos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://web.facebook.com/profile.php?id=100087200062060" class="text-dark" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/pizzeria_la_nonna_/" class="text-dark" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 La Nonna Pizza. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <div class="modal fade" id="acercaDeModal" tabindex="-1" aria-labelledby="acercaDeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="acercaDeModalLabel">Acerca de Nosotros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Hola buen día pizza lover, somos una pequeña compañia familiar de pizzas ubicada en la sexta región de Chile, más específicamente el pueblito de inundado de Rengo.</p>
+                    <p>Nacimos como emprendimiento bajo el contexto de pandemia en 2020 y nos seguimos manteniendo gracias a nuestro sabor único y clientes. Pide con nosotros, no te arrepentirás de ser un nonnalover.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+    <div class="brand-pattern"></div>
+</html>

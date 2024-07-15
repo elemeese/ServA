@@ -1,0 +1,247 @@
+:root {
+    --primary-yellow: #FFD700;
+    --secondary-red: #FF0000;
+    --text-white: #FFFFFF;
+    --dark-gray: #333333;
+    --light-gray: #f8f9fa;
+    --pattern-color: rgba(255, 215, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 70px;
+    background-color: var(--text-white);
+    color: var(--dark-gray);
+}
+
+.brand-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background-color: var(--text-white);
+    background-image: 
+        linear-gradient(45deg, var(--pattern-color) 25%, transparent 25%), 
+        linear-gradient(-45deg, var(--pattern-color) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--pattern-color) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--pattern-color) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.custom-navbar {
+    background-color: var(--primary-yellow);
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    transition: background-color 0.3s ease;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 215, 0, 0.9);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--dark-gray) !important;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--secondary-red) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--dark-gray);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(51, 51, 51, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--secondary-red);
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--secondary-red);
+    border-color: var(--secondary-red);
+    color: var(--text-white);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #D10000;
+    border-color: #D10000;
+}
+
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(255, 215, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-red);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid var(--primary-yellow);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: var(--secondary-red);
+    font-weight: 700;
+}
+
+.card-text {
+    color: var(--dark-gray);
+}
+
+footer {
+    background-color: var(--primary-yellow);
+    color: var(--dark-gray);
+}
+
+footer h5 {
+    color: var(--secondary-red);
+}
+
+footer a {
+    color: var(--dark-gray) !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-red) !important;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-red);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.animar-entrada {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.animar-entrada.animado {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mensaje-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carrito-item {
+    background-color: var(--light-gray);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.carrito-item:hover {
+    background-color: #e9ecef;
+}
+
+.form-check {
+    margin-bottom: 10px;
+}
+
+#precio-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--secondary-red);
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 50vh;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.btn-primary:focus, .nav-link:focus {
+    outline: 2px solid var(--secondary-red);
+    outline-offset: 2px;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nonna Pizza - Personalizar Pizza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href={% url 'index' %}>
+                <img src="{% static 'img/logo.png' %}" alt="La Nonna Pizza Logo" class="d-inline-block align-top navbar-logo">
+                La Nonna Pizza
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'index' %}>Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'index' %}>Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Personalizar Pizza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'carrito' %}>
+                            Carrito <span id="contador-carrito" class="badge bg-secondary">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-5 pt-5">
+        <h1 class="text-center mb-4 section-title">Personaliza tu Pizza</h1>
+        <p class="text-center">Todas nuestras pizzas son de 38 cm</p>
+        <form id="personalizar-pizza-form" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label class="form-label">Ingredientes adicionales (2500 pesos cada uno)</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes" id="pepperoni" value="pepperoni">
+                    <label class="form-check-label" for="pepperoni">Pepperoni</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes" id="jamon" value="jamon">
+                    <label class="form-check-label" for="jamon">Jamón</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes" id="aceitunas" value="aceitunas">
+                    <label class="form-check-label" for="aceitunas">Aceitunas</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes" id="cebolla" value="cebolla">
+                    <label class="form-check-label" for="cebolla">Cebolla</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes" id="tomate" value="tomate">
+                    <label class="form-check-label" for="tomate">Tomate</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes" id="queso-cheddar" value="queso-cheddar">
+                    <label class="form-check-label" for="queso-cheddar">Queso Cheddar</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingredientes" id="queso-parmesano" value="queso-parmesano">
+                    <label class="form-check-label" for="queso-parmesano">Queso Parmesano</label>
+                </div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="oregano">
+                <label class="form-check-label" for="oregano">Agregar orégano (sin costo adicional)</label>
+            </div>
+            <div class="mb-3">
+                <label for="instrucciones" class="form-label">Instrucciones especiales</label>
+                <textarea class="form-control" id="instrucciones" rows="3" maxlength="200"></textarea>
+                <div class="form-text">Máximo 200 caracteres</div>
+            </div>
+            <div class="mb-3">
+                <h4>Precio base: $5500</h4>
+                <h4>Precio total: $<span id="precio-total">5500</span></h4>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+        </form>
+    </main>
+
+    <footer class="bg-light text-center text-lg-start mt-4">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">La Nonna Pizza</h5>
+                    <p>
+                        Ofrecemos las mejores pizzas artesanales con ingredientes frescos y de calidad.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#acercaDeModal">Acerca de</a></li>
+                        <li><a href={% url 'index' %} class="text-dark">Menú</a></li>
+                        <li><a href="https://api.whatsapp.com/message/7CJCLY3QVPKMJ1?autoload=1&app_absent=0" class="text-dark" target="_blank">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0">Síguenos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://web.facebook.com/profile.php?id=100087200062060" class="text-dark" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/pizzeria_la_nonna_/" class="text-dark" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 La Nonna Pizza. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <div class="modal fade" id="acercaDeModal" tabindex="-1" aria-labelledby="acercaDeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="acercaDeModalLabel">Acerca de Nosotros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Hola buen día pizza lover, somos una pequeña compañia familiar de pizzas ubicada en la sexta región de Chile, más específicamente el pueblito de inundado de Rengo.</p>
+                    <p>Nacimos como emprendimiento bajo el contexto de pandemia en 2020 y nos seguimos manteniendo gracias a nuestro sabor único y clientes. Pide con nosotros, no te arrepentirás de ser un nonnalover.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/personalizar.js' %}"></script>
+</body>
+    <div class="brand-pattern"></div>
+</html>
